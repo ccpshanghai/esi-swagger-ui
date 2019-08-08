@@ -12,7 +12,7 @@
 # you can change settings by using the following env vars:
 #
 # - PORT: integer, default 8000
-# - CONTAINER: string, default esi-swagger-ui-v3
+# - CONTAINER: string, default esi-swagger-ui
 # - PROTOCOL: string, default http
 # - DOCKER_BUILD_ARGS: string, default empty. extra flags for docker build
 #
@@ -23,7 +23,7 @@
 # not on tweetfleet slack? get an invite -> https://www.fuzzwork.co.uk/tweetfleet-slack-invites/
 
 PORT=${PORT-8000}
-CONTAINER=${CONTAINER-esi-swagger-ui-v3}
+CONTAINER=${CONTAINER-esi-swagger-ui}
 PROTOCOL=${PROTOCOL-http}
 
 # check for client_id
@@ -42,7 +42,7 @@ mkdir -p latest legacy dev
 for VERSION in latest legacy dev; do
   if [[ ! -e "$VERSION/swagger.json" ]]; then
     echo "fetching $VERSION swagger.json from ESI..."
-    curl -s -H 'User-Agent: esi-swagger-ui-v3/dev' https://esi.tech.ccp.is/$VERSION/swagger.json > $VERSION/swagger.json
+    curl -s -H 'User-Agent: esi-swagger-ui/dev' https://esi.tech.ccp.is/$VERSION/swagger.json > $VERSION/swagger.json
     if [ $? != 0 ]; then
       echo "failed to fetch $VERSION swagger.json from ESI"
       exit 1
