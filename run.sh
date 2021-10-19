@@ -38,18 +38,6 @@ fi
 # ensure structure (otherwise the dockerfile will error)
 mkdir -p latest legacy dev
 
-# check for local swagger.jsons
-for VERSION in latest legacy dev; do
-  if [[ ! -e "$VERSION/swagger.json" ]]; then
-    echo "fetching $VERSION swagger.json from ESI..."
-    curl -s -H 'User-Agent: esi-swagger-ui/dev' https://esi.tech.ccp.is/$VERSION/swagger.json > $VERSION/swagger.json
-    if [ $? != 0 ]; then
-      echo "failed to fetch $VERSION swagger.json from ESI"
-      exit 1
-    fi
-  fi
-done
-
 # shim the UI under /ui/ for consistency with production
 # maybe once this UI is stable it'll be moved up a level
 BASEURL="$PROTOCOL://${DOCKER_MACHINE_NAME-localhost}:$PORT/ui/"
