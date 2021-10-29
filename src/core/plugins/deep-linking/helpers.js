@@ -5,3 +5,13 @@ export const setHash = (value) => {
     return window.location.hash = ""
   }
 }
+
+export const setTranslate = (value) => {
+  let chineseDict = {"Alliance" : "联盟"}
+  if (chineseDict[value]){
+    return `${value}/${chineseDict[value]}`
+  }else{
+    return `${value}`
+  }
+}
+
