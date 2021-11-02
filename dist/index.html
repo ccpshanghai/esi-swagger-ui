@@ -254,16 +254,6 @@
      esiStatus();
     });
    }
-   // deal chinese translation
-   var elements = document.getElementsByClassName('nostyle')
-   var translation = {"Alliance": "军团"};
-   Array.prototype.forEach.call(elements, function (element){
-     var spanValue = element.children[0].value;
-     if (translation[spanValue]){
-        spanValue = spanValue + "/" + translation[spanValue];
-     }
-     element.innerHTML = "<span>" + spanValue + "</span>"
-   })
   }
   </script>
  </body>

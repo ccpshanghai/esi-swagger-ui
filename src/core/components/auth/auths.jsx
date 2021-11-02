@@ -95,6 +95,7 @@ export default class Auths extends React.Component {
           <div className="scope-def">
             <p>Scopes are used to grant an application different levels of access to data on behalf of the end user. Each API may declare one or more scopes.</p>
             <p>API requires the following scopes. Select which ones you want to grant to Swagger UI.</p>
+            <p>授权以下接口将可获得您的个人信息，包括但不限于邮件记录、人物位置、雇佣记录、合同记录、仓库物品等，请勿将该授权链接告知他人，以免造成隐私泄露。</p>
           </div>
             {
               definitions.filter( schema => schema.get("type") === "oauth2")
